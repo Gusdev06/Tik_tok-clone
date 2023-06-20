@@ -1,0 +1,74 @@
+.videoFooter {
+    position: relative;
+    bottom: 20%;
+    color: white;
+    margin-left: 30px;
+
+    &__text {
+
+
+        h3 {
+            padding-bottom: 20px;
+        }
+
+        p {
+            padding-bottom: 20px;
+        }
+    }
+
+    &__music {
+        display: flex;
+
+        &--text {
+            width: 80%;
+            overflow-x: hidden;
+
+            p {
+                animation: moveTheText 4s infinite linear;
+            }
+
+        }
+
+        @keyframes moveTheText {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    }
+
+    &__record {
+        position: absolute;
+        bottom: 5px;
+        right: 20px;
+        height: 40px;
+        filter: invert(1); // mudar a cor do vinil para branco
+        animation: rotate-infinite 3s infinite linear; // o linear server para que ele n de aquela parada quando termina a animação
+
+        @keyframes rotate-infinite {
+            0% {
+                transform: rotate(0deg);
+                /* Define o início da animação */
+            }
+
+            100% {
+                transform: rotate(360deg);
+                /* Define o fim da animação */
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .videoFooter {
+        bottom: 22%;
+        &__music {
+            &--text {
+                width: 78%;
+            }
+        }
+    }
+}
